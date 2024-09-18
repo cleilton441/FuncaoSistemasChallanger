@@ -1,0 +1,36 @@
+@{
+    ViewBag.Title = "Cadastrar Beneficiario";
+}
+@section scripts{
+    <script>
+        var urlPost = '@Url.Action("Incluir", "Beneficiario", new { area = "" })';
+        var urlAlteracao = '@Url.Action("Alterar", "Beneficiario", new { area = "" })';
+        var urlExclusao = '@Url.Action("Excluir", "Beneficiario", new { area = "" })';
+        var urlBeneficiarioList = '@Url.Action("BeneficiarioList", "Beneficiario", new { area = "" })';
+    </script>
+    @Scripts.Render("~/bundles/beneficiarios")
+}
+
+<form id="formCadastroBeneficiario" method="post">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="CPF">CPF:</label>
+                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 999.999.999-99" maxlength="14">
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="Nome">Nome:</label>
+                <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: João" maxlength="50">
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="pull-right">
+                <button type="submit" class="btn btn-sm btn-success">Incluir</button>
+            </div>
+        </div>
+    </div>
+</form>
+<table id="gridBeneficiarios" class="table"></table>
